@@ -30,50 +30,54 @@ window.pageContent = {
     title: 'Gracias por tus detalles',
     text: "Hay pequeños momentos que me sorprendieron y que todavía recuerdo con una sonrisa. Dentro de este regalo quise reunir algunas cosas que en aquel momento no supe decir."
   },
+  
   memories: [
     [
       "Recuerdo 1 — Una mañana inesperada",
-      "Una mañana apareciste de repente y me entregaste una salteña. Me quedé anonadado, la verdad, jajaja. No sabía muy bien cómo reaccionar y pasé buena parte del día preguntándome quién sería aquella señorita y por qué se había acercado a mí.",
+      "Todo comenzó con una visita inesperada y una salteña. Creo que mi cara de confusión lo decía todo, jajajaja. Sin darte cuenta, me dejaste con un pequeño misterio por resolver.",
       "saltena"
     ],
     [
-      "Recuerdo 2 — Una presentación diferente",
-      "Otro día volviste a sorprenderme, esta vez con un refresco y una galletita que llevaban tu nombre en sus etiquetas.\n\nMe pareció una forma bastante particular y creativa de presentarte. Pero la sorpresa no terminó ahí: entre aquellos detalles había un código QR que me llevó a una canción.\n\nCuando finalmente comprendí lo que estaba pasando, me quedé sonrojado y sin saber muy bien qué pensar, jajaja. Aquella canción consiguió tranquilizarme un poco entre tantas preguntas y emociones.",
+      "Recuerdo 2 — Una sorpresa con música",
+      "Después llegaron un refresco y una galletita con una presentación bastante original, y, por si fuera poco, un código QR que escondía una canción. ¡Vaya manera de sorprenderme!",
       "refreshment"
     ],
     [
-      "Recuerdo 3 — Lo que no supe decir",
-      "No estoy acostumbrado a recibir este tipo de atenciones. Puede que no lo haya demostrado demasiado, pero me alegraron sinceramente.\n\nPor eso quería agradecerte a mi manera, creando algo que pudiera expresar lo que en aquel momento no supe decir.",
+      "Recuerdo 3 — Una sonrisa inesperada",
+      "Hay gestos pequeños que consiguen alegrarte el día cuando menos lo esperas. Estos fueron algunos de esos momentos que vale la pena recordar.",
       "cookie"
     ]
   ],
+
+  
   about: [
     [
       "Mi forma de ser",
-      "Soy un hombre reservado. A veces puedo parecer frío o distante; me toma un poco de tiempo encontrar las palabras y otras veces simplemente me quedo en blanco."
-    ],
-    [
-      "A mi manera",
-      "No suelo ser muy detallista, pero crear algo visual es una de las maneras en las que puedo expresar lo que quiero compartir, además de las palabras."
-    ],
-    [
-      "Conversar, paso a paso",
-      "A veces me cuesta iniciar o mantener una conversación, e incluso puedo ser algo torpe con las palabras. Pero intento mejorar mi forma de comunicarme, con calma."
-    ],
-    [
-      "Mi espacio",
-      "Me acostumbré a estar solo y disfruto de mi espacio. Los momentos tranquilos me permiten ir a mi propio ritmo."
-    ],
-    [
-      "Lo que valoro",
-      "Valoro la sinceridad, el respeto y la tranquilidad."
+      "Al principio suelo ser bastante tranquilo y reservado. Pero cuando agarro confianza, también aparece mi lado bromista y alguna que otra ideota descabellada :D."
     ],
     [
       "Mi lado creativo",
-      "Trabajo con diseño gráfico y me gusta transformar ideas en cosas visuales y concretas. También suelo tocar la guitarra para componer canciones fugaces, aunque actualmente soy bajista."
+      "Me gusta transformar las ideas en algo que pueda verse, escucharse o utilizarse. Por eso disfruto tanto de la informática y del diseño gráfico."
+    ],
+    [
+      "La música y yo",
+      "La guitarra me ha acompañado durante bastante tiempo. A veces me da por componer canciones que aparecen de repente y desaparecen igual de rápido. Actualmente también toco el bajo."
+    ],
+    [
+      "Mis momentos favoritos",
+      "Disfruto de los momentos tranquilos, escuchar música, aprender algo nuevo y pasar un rato haciendo cosas que me gustan."
+    ],
+    [
+      "Lo que valoro",
+      "Me gustan las personas sinceras, las conversaciones sin apariencias y esos momentos en los que uno puede sentirse cómodo siendo como es."
+    ],
+    [
+      "Algo curioso sobre mí",
+      "Puedo pasar horas intentando resolver un problema de programación o aprendiendo algo que me interesa… aunque para elegir qué decir en una conversación a veces me tome mucho más tiempo, de lo normal."
     ]
   ],
-  discover: { text: "No quería que este espacio tratara solamente de mí. Siento que todavía hay muchas cosas que podemos descubrir. Me gustaría saber qué disfrutas, qué te inspira y qué pequeñas cosas te hacen sonreír." },
+
+  discover: { text: "Bueno, ya hablé bastante de mí, :D. Ahora me dio curiosidad saber un poquito más sobre ti. Preparé algunas preguntas por si alguna te llama la atención. Puedes responder una, varias o ninguna; también podemos dejar esas historias para una conversación." },
   // [id estable, tema, pregunta abierta, invitación]. Todas las respuestas son opcionales.
   questions: [
     ['musica', 'Música y canciones especiales', '¿Qué canción tiene una historia especial para ti?', 'Si quieres, podemos empezar por una canción.'],
