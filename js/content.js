@@ -6,7 +6,7 @@ window.pageContent = {
   site: { title: 'Un pequeño espacio para ti', brand: 'Un pequeño espacio', brandTail: "para ti con mucho cariño", description: "Un pequeño espacio para agradecer." },
   navigation: { skip: 'Saltar al contenido', menu: 'Menú', label: 'Navegación principal', thanks: 'Gracias', about: 'Sobre mí', discover: 'Sobre ti', letter: 'La carta', back: 'Volver al inicio ↑' },
   labels: {
-    heroEyebrow: 'UN DETALLE, A MI MANERA', start: 'Comenzar', quiet: "Sin prisas, puedes quedarte un momento.", scene: "Un pequeño gesto.", heroBottom: "HECHO CON MUCHO CARIÑO", below: 'Un poquito más abajo ↓',
+    heroEyebrow: 'UN DETALLE, A MI MANERA', start: 'Comenzar', quiet: "Explora con calma, que aquí no hay ninguna prisa.", scene: "Un pequeño gesto.", heroBottom: "HECHO CON MUCHO CARIÑO", below: 'Un poquito más abajo ↓',
     thanksEyebrow: "LA VIDA ESTÁ LLENA DE SORPRESAS", gift: 'Hay detalles que se quedan.', giftPending: 'Un mensaje para leer con calma',
     aboutEyebrow: "AUNQUE NO ME LO PEDISTE", aboutTitle: 'Un poco sobre mí', aboutIntro: "No tengo todas las palabras, pero puedo empezar por ser honesto.", aboutFootnote: "Son cosas que reconozco en mí.",
     discoverEyebrow: "AHORA, SOBRE TI", discoverTitle: 'Bueno… ¿y qué hay de ti?', conversationTitle: "¿De qué te gustaría conversar?", discoverFootnote: "Responde solo lo que te apetezca, sin presiones",
@@ -24,9 +24,9 @@ window.pageContent = {
   illustrationsEnabled: true,
   hero: {
     title: '¡Holaaa! Qué alegría verte por aquí'',
-    text: "Bueno… no sé muy bien cómo comenzar esto, jajajaja.\n\nSe me ocurrió preparar un pequeño espacio diferente, con algunas sorpresas, un poquito de creatividad y varias cosas que me gustaría compartir contigo.\n\nNo te preocupes, no es un examen ni tienes que responder nada, jajaja. Simplemente quería invitarte a recorrer algo que hice con mucho cariño.\n\nEspero que te guste y, sobre todo, que te saque una sonrisa."
+    text: "Bueno… no sé muy bien cómo comenzar esto.\n\nSe me ocurrió preparar un pequeño espacio diferente, con algunas sorpresas, un poquito de creatividad y varias cosas que me gustaría compartir contigo.\n\nNo te preocupes, no es un examen ni tienes que responder nada :D. Simplemente quería invitarte a recorrer algo que hice con mucho cariño.\n\nEspero que te guste y, sobre todo, que te saque una sonrisa."
   },
-  thanks: {
+  thanks:{
     title: 'Gracias por tus detalles',
     text: "Hay pequeños momentos que me sorprendieron y que todavía recuerdo con una sonrisa. Dentro de este regalo quise reunir algunas cosas que en aquel momento no supe decir."
   },
