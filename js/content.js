@@ -23,8 +23,8 @@ window.pageContent = {
   starHint: "Algunas estrellas tienen algo que contarte",
   illustrationsEnabled: true,
   hero: {
-    title: 'Hola… hice esto especialmente para ti',
-    text: "No suelo hacer este tipo de cosas, pero como me dedico a la informática y al diseño, se me ocurrió crear algo propio. Pensé que esta podría ser mi manera de expresarme.\n\nLa verdad, me costó varias noches de desvelo, principalmente porque no sabía cómo empezar, jajaja. Aun así, quería hacer algo diferente para agradecerte, contarte un poco sobre mí y, si me das el privilegio, también conocerte mejor."
+    title: '¡Holaaa! Qué alegría verte por aquí'',
+    text: "Bueno… no sé muy bien cómo comenzar esto, jajajaja.\n\nSe me ocurrió preparar un pequeño espacio diferente, con algunas sorpresas, un poquito de creatividad y varias cosas que me gustaría compartir contigo.\n\nNo te preocupes, no es un examen ni tienes que responder nada, jajaja. Simplemente quería invitarte a recorrer algo que hice con mucho cariño.\n\nEspero que te guste y, sobre todo, que te saque una sonrisa."
   },
   thanks: {
     title: 'Gracias por tus detalles',
