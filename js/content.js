@@ -116,7 +116,7 @@ window.pageContent = {
   
     "No porque esperara algo a cambio, sino porque me parecía bonito agradecerte con algo creado por mí, asi como me obsequiaste algo creado por ti.",
   
-    "Y también porque quería mostrarte una parte de quien soy. Detrás de esa apariencia seria y algo cansada hay alguien que disfruta crear, aprender, tocar música y que, aunque no siempre sepa mantener una conversación, también tiene muchas historias y tonterías que contar.",
+    "Y también porque quería que conocieras un poquito más de mí. Espero que, después de recorrer este pequeño espacio, hayas descubierto que detrás de mi cara seria también hay alguien con ocurrencias, sueños y muchas ganas de seguir aprendiendo cosas nueva.",
   
     "Ahora que hemos comenzado a conversar, me gustaría seguir descubriendo cosas de ti: qué música te acompaña, qué te hace reír, cuáles son tus sueños o simplemente cómo estuvo tu día.",
   
@@ -128,7 +128,7 @@ window.pageContent = {
   
     "Espero que esta página te saque al menos una sonrisa, porque mientras la preparaba, más de una vez terminé sonriendo yo también.",
 
-    "Quiero que no te sientas forzada a responderme o corresponder pero aunque llegues a olvidarme, yo jamas olvidare tu nombre.",
+    "No tienes que sentirte comprometida a responder de alguna manera especial. Con que hayas disfrutado este pequeño recorrido y te haya sacado una sonrisa, para mí ya habrá valido la pena.",
   
     "Un pequeño detalle, hecho a mi manera."
   ],
