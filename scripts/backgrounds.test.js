@@ -27,10 +27,10 @@ test('Fondos: caché, carga diferida y error conservan la alternativa CSS', () =
   deferred.handlers.error();
   assert(deferred.hidden && !deferred.classList.contains('is-loaded'));
 });
-test('Seis fondos locales existentes, decorativos, con dimensiones y prioridad adaptada', () => {
+test('Cinco fondos locales existentes, decorativos, con dimensiones y prioridad adaptada', () => {
   const html = read('index.html');
   const tags = html.match(/<img class="scene-illustration"[^>]+>/g);
-  assert.equal(tags.length, 6);
+  assert.equal(tags.length, 5);
   for (const [index, tag] of tags.entries()) {
     const source = tag.match(/src="([^"]+)"/)[1];
     assert(source.startsWith('assets/backgrounds/'));

@@ -25,7 +25,11 @@ test('HTML: anidación, IDs únicos, destinos, controles y recursos locales rela
   for (const match of html.matchAll(/\s(?:src|href)="([^"]+)"/g)) {
     const target = match[1];
     if (target.startsWith('#')) assert(ids.includes(target.slice(1)), 'Destino: ' + target);
-    else {
+    else if (target.startsWith('https://youtu.be/')) {
+      assert.equal(target,'https://youtu.be/Xm_M3B5B7Lo?si=BGoWgEivllY5tBN-');
+    } else if (target.startsWith('https://www.youtube-nocookie.com/embed/')) {
+      assert.equal(target.replace(/&amp;/g,'&'),'https://www.youtube-nocookie.com/embed/Xm_M3B5B7Lo?autoplay=0&playsinline=1&rel=0');
+    } else {
       assert(!/^(?:\/|[a-z]+:)/i.test(target), 'Debe ser una ruta relativa: ' + target);
       assert(fs.existsSync(path.join(root, target)), 'Recurso: ' + target);
     }
@@ -39,9 +43,9 @@ test('HTML: anidación, IDs únicos, destinos, controles y recursos locales rela
 });
 
 test('Respaldo nativo, continuidad y reglas de legibilidad sin nuevas dependencias', () => {
-  assert.equal((html.match(/<section\b/g) || []).length, 6);
+  assert.equal((html.match(/<section\b/g) || []).length, 5);
   assert.equal((html.match(/<details class="memory-card"/g) || []).length, 3);
-  assert.equal((html.match(/<details class="card taste-card"/g) || []).length, 6);
+  assert(!html.includes('taste-card'));
   assert.equal((html.match(/data-question-id=/g) || []).length, 7);
   assert(html.includes('Elige una conversación'));
   assert(html.includes('Prefiero contártelo conversando'));
@@ -53,7 +57,8 @@ test('Respaldo nativo, continuidad y reglas de legibilidad sin nuevas dependenci
   assert.match(css, /mask-image:linear-gradient/);
   assert.match(css, /\.lead,\.body-copy,#letter-content p,\.card p\{font-size:16px\}/);
   assert(!/font-size:\s*[0-9](?:px)\b/.test(css));
-  assert(!/<audio\b|autoplay|<iframe\b/.test(html));
+  assert(!/<audio\b|autoplay=1/.test(html));
+  assert.equal((html.match(/<iframe\b/g)||[]).length,1);
 });
 
 test('Contraste de texto y controles sobre las superficies definidas (no renderizado)', () => {

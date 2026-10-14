@@ -4,12 +4,27 @@
   const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
   const node = (tag, attrs = {}, children = []) => ({ tag, attrs, children });
   const number = index => node('span', { class: 'card-number', 'aria-hidden': 'true' }, [String(index + 1).padStart(2, '0')]);
+  function musicCard(content) {
+    const videoId = content.music.url.match(/^https:\/\/youtu\.be\/([A-Za-z0-9_-]{11})(?:[?/#]|$)/)?.[1];
+    const children = [];
+    if (videoId) children.push(node('iframe', {
+      class: 'music-player',
+      src: `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=0&playsinline=1&rel=0`,
+      title: content.music.title,
+      loading: 'lazy',
+      allow: 'encrypted-media; picture-in-picture; fullscreen',
+      allowfullscreen: '',
+      referrerpolicy: 'strict-origin-when-cross-origin'
+    }));
+    children.push(node('a', { href: content.music.url, target: '_blank', rel: 'noopener noreferrer', 'aria-label': content.music.button + '. ' + content.music.external }, [node('span', {}, [content.music.button]), node('span', { 'aria-hidden': 'true' }, [' ↗'])]));
+    return node('article', { class: 'music-card' }, children);
+  }
   function blocks(content) {
     return {
       'about-cards': content.about.map(([title, text], index) => node('article', { class: 'card' }, [number(index), node('h3', {}, [title]), node('p', {}, [text])])),
-      'detail-cards': content.details.map(([title, text], index) => node('details', { class: 'card taste-card' }, [node('summary', {}, [number(index), node('span', { class: 'taste-title' }, [title])]), node('p', {}, [text])])),
       'gift-story': content.memories.map(([title, text, icon]) => node('details', { class: 'memory-card' }, [node('summary', {}, [node('span', { class: 'memory-icon ' + icon, 'aria-hidden': 'true' }), node('span', {}, [title])]), node('p', {}, [text])])),
       questions: content.questions.map(([id, title, text, invite], index) => node('article', { class: 'card', 'data-question-id': id }, [number(index), node('h3', {}, [title]), node('p', {}, [text]), node('p', { class: 'conversation-invite' }, [invite])])),
+      'music-card': [musicCard(content)],
       'letter-content': content.letter.map(text => node('p', {}, [text]))
     };
   }

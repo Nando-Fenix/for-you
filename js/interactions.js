@@ -41,9 +41,9 @@
         bands[index % 2].append(createStar(Math.floor(index / 2), 30));
       }
       sky.replaceChildren(...bands);
-      // Las otras treinta se anclan al padding de las seis secciones, fuera
+      // Las otras veinticinco se anclan al padding de las cinco secciones, fuera
       // de los textos. Su posición responde a la altura real de cada sección.
-      ['inicio', 'gracias', 'sobre-mi', 'conocerte', 'detalles', 'carta'].forEach(id => {
+      ['inicio', 'gracias', 'sobre-mi', 'conocerte', 'carta'].forEach(id => {
         const section = document.getElementById(id);
         if (!section) return;
         const localSky = document.createElement('div');
@@ -60,7 +60,7 @@
       });
     }
     // El botón ocupa el margen amplio; los mensajes siguen en el flujo normal.
-    const starSections = ['inicio', 'gracias', 'sobre-mi', 'detalles', 'carta'];
+    const starSections = ['inicio', 'gracias', 'sobre-mi', 'conocerte', 'carta'];
     starSections.forEach((id, index) => {
       const section = document.getElementById(id);
       const thought = content.starThoughts?.[index];
@@ -150,13 +150,6 @@
       });
       render();
       button.hidden = false;
-    });
-    // details conserva su comportamiento y accesibilidad nativos con y sin JS.
-    document.querySelectorAll('.taste-card').forEach(card => {
-      const summary = card.querySelector('summary');
-      const update = () => summary?.setAttribute('aria-expanded', String(card.open));
-      card.addEventListener('toggle', update);
-      update();
     });
 
     const dialog = document.getElementById('message-preview');

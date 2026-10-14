@@ -23,15 +23,14 @@ function element() {
   };
 }
 function setup({ number = '', reduced = false, config = true, clipboard = true, dialogSupport = true } = {}) {
-  const ids = ['gift-story','prefer-conversation','conversation-status','gift-message','gift-art','letter-panel','letter-art','message-preview','questions','share-answers','answer-status','preview-text','preview-status','confirm-whatsapp','open-whatsapp','number-status','whatsapp-confirmation','copy-answers','cancel-preview','answer-actions','about-cards','detail-cards','letter-content','navigation','gracias'];
+  const ids = ['gift-story','prefer-conversation','conversation-status','gift-message','gift-art','letter-panel','letter-art','message-preview','questions','share-answers','answer-status','preview-text','preview-status','confirm-whatsapp','open-whatsapp','number-status','whatsapp-confirmation','copy-answers','cancel-preview','answer-actions','about-cards','music-card','letter-content','navigation','gracias'];
   const nodes = Object.fromEntries(ids.map(id => [id, element()]));
   nodes['night-sky'] = element();
-  for (const id of ['inicio','sobre-mi','conocerte','detalles','carta']) nodes[id] = element();
+  for (const id of ['inicio','sobre-mi','conocerte','carta']) nodes[id] = element();
   const toggle = element(); toggle.attrs['aria-expanded'] = 'false'; const header = element();
   const gift = element(); gift.dataset = {disclosure:'gift-message',art:'gift-art',openLabel:'giftOpen',closeLabel:'giftClose'};
   const letter = element(); letter.dataset = {disclosure:'letter-panel',art:'letter-art',openLabel:'letterOpen',closeLabel:'letterClose'};
-  const characters = ['inicio','gracias','pensativo','atento','relajado','sonrisa'].map(pose => { const e=element();e.dataset.pose=pose;e.children=['placeholder'];return e; });
-  const taste = element(); const summary = element(); summary.tagName = 'summary'; taste.append(summary); taste.open = false;
+  const characters = ['inicio','gracias','pensativo','atento','sonrisa'].map(pose => { const e=element();e.dataset.pose=pose;e.children=['placeholder'];return e; });
   const descendants = () => { const all = []; const visit = e => { if (!e || typeof e !== 'object') return; all.push(e); for (const child of e.children || []) visit(child); }; Object.values(nodes).forEach(visit); return all; };
   const link=element(); link.hash='#gracias'; nodes.navigation.querySelectorAll=()=>[link];
   const documentHandlers = {};
@@ -40,7 +39,7 @@ function setup({ number = '', reduced = false, config = true, clipboard = true, 
   nodes['message-preview'].close=function(){this.open=false;return this.fire('close');};
   const context = {window:{open:(...args)=>opened.push(args),matchMedia:()=>({matches:reduced})},navigator:{clipboard:clipboard?{writeText:async value=>copied.push(value)}:undefined},
     document:{querySelector:s=>s==='.menu-toggle'?toggle:s==='.header'?header:nodes[s.slice(1)]??null,
-      querySelectorAll:s=>s==='[data-disclosure]'?[gift,letter,...descendants().filter(e=>e.dataset?.disclosure)]:s==='[data-pose]'||s==='.character'?characters:s==='.taste-card'?[taste]:[],
+      querySelectorAll:s=>s==='[data-disclosure]'?[gift,letter,...descendants().filter(e=>e.dataset?.disclosure)]:s==='[data-pose]'||s==='.character'?characters:[],
       getElementById:id=>nodes[id]??descendants().find(e=>e.id===id)??null,createElement:tag=>{const e=element();e.tagName=tag;return e;},createTextNode:text=>({textContent:text}),addEventListener:(name,fn)=>(documentHandlers[name]??=[]).push(fn)},
     Image:function(){this.remove=()=>{this.removed=true;};images.push(this);},IntersectionObserver:function(){observerCount++;this.observe=()=>{};this.unobserve=()=>{}}
   };
@@ -50,7 +49,7 @@ function setup({ number = '', reduced = false, config = true, clipboard = true, 
   vm.runInContext(read('js/render-content.js'),context);
   vm.runInContext(read('js/interactions.js'),context);
   vm.runInContext(read('js/script.js'),context);
-  return {nodes,gift,letter,toggle,header,link,characters,images,opened,copied,context,observerCount,documentHandlers,taste,summary,
+  return {nodes,gift,letter,toggle,header,link,characters,images,opened,copied,context,observerCount,documentHandlers,
     answer(index,value){nodes.questions.children[index].children[2].value=value;}};
 }
 test('Regalo y carta: abrir, cerrar, releer y mantener estados accesibles', async()=>{
@@ -99,16 +98,16 @@ test('Movimiento reducido: no observa ni reacciona; CSS desactiva las animacione
   const s=setup({reduced:true});assert.equal(s.observerCount,0);await s.characters[0].fire('pointerdown');assert(!s.characters[0].classList.contains('reacting'));
   assert.match(read('css/style.css'),/@media\(prefers-reduced-motion:reduce\)[\s\S]*animation:none!important;transition:none!important/);
 });
-test('Imágenes: seis poses reales, error conserva marcador; configuración ausente no falla',()=>{
-  const s=setup();const images=s.images.filter(image=>image.src.includes('/chibi/'));assert.equal(images.length,6);
+test('Imágenes: cinco poses reales, error conserva marcador; configuración ausente no falla',()=>{
+  const s=setup();const images=s.images.filter(image=>image.src.includes('/chibi/'));assert.equal(images.length,5);
   for(const [index,image] of images.entries()){assert(fs.existsSync(path.join(root,image.src)));assert.equal(image.loading,index===0?'eager':'lazy');image.onerror();assert(image.removed);}
   assert(s.characters.every(e=>e.children[0]==='placeholder'));
   const missing=setup({config:false});assert.equal(missing.images.length,0);assert.equal(missing.gift.hidden,true);assert(missing.header.classList.contains('menu-ready'));
 });
 test('Respaldo, controles nativos y ausencia de almacenamiento o trackers en scripts',()=>{
-  const html=read('index.html');assert(html.includes('No siempre encuentro las palabras adecuadas,'));assert(html.includes('Una mañana apareciste de repente y me entregaste una salteña.'));
+  const html=read('index.html');assert(html.includes('Nuevamente quiero agradecerte por los detalles.'));assert(html.includes('Una mañana apareciste de repente y me entregaste una salteña.'));
   assert(!/<(?:article|div)[^>]*id="(?:gift-message|letter-panel)"[^>]*\bhidden/.test(html));
-  assert.equal((html.match(/<section\b/g)||[]).length,6);
+  assert.equal((html.match(/<section\b/g)||[]).length,5);
   for(const tag of html.match(/<button\b[^>]*>/g))assert(tag.includes('type="button"'));
   assert(html.includes('<dialog'));assert(read('js/interactions.js').includes("document.createElement('summary')"));
   assert(!/localStorage|sessionStorage|indexedDB|sendBeacon|fetch\(|XMLHttpRequest/.test(read('js/interactions.js')));
@@ -135,9 +134,9 @@ test('Siete preguntas con invitación; la pregunta libre entra en la vista previ
   assert(!s.nodes['preview-text'].value.includes('¿Qué canción'));
 });
 
-test('Recuerdos, gustos y carta comparten generador con el respaldo; sin dialog siguen legibles',()=>{
+test('Recuerdos, tarjeta musical y carta comparten generador con el respaldo; sin dialog siguen legibles',()=>{
   const s=setup({dialogSupport:false});const content=s.context.window.pageContent;
-  assert.equal(s.nodes['gift-story'].children.length,3);assert.equal(s.nodes['detail-cards'].children.length,6);assert.equal(s.nodes['letter-content'].children.length,9);
+  assert.equal(s.nodes['gift-story'].children.length,3);assert.equal(s.nodes['letter-content'].children.length,11);
   assert.equal(s.nodes['answer-actions'].hidden,true);assert.equal(s.nodes.questions.children.length,7);
   const renderer=require('../js/render-content.js');const html=read('index.html');
   for(const [id,nodes] of Object.entries(renderer.blocks(content))){
@@ -146,6 +145,62 @@ test('Recuerdos, gustos y carta comparten generador con el respaldo; sin dialog 
   }
   assert(!html.includes('Por completar:'));assert.equal(content.whatsappNumber,'');
   assert(renderer.html({tag:'p',attrs:{title:'"<&'},children:['<script> & texto']}).includes('&lt;script&gt; &amp; texto'));
+});
+
+test('Cinco secciones sin gustos, una estrella interactiva por sección y pensamientos actualizados',()=>{
+  const s=setup();const content=s.context.window.pageContent;
+  const expected=['inicio','gracias','sobre-mi','conocerte','carta'];
+  const html=read('index.html');
+  assert.deepEqual([...html.matchAll(/<section[^>]*id="([^"]+)"/g)].map(match=>match[1]),expected);
+  assert.equal(content.details,undefined);assert.equal(content.poses.relajado,undefined);
+  for(const file of ['index.html','js/interactions.js','js/render-content.js','css/style.css']){
+    assert(!/id="detalles"|#detalles|['"]detalles['"]|detail-cards|taste-card|scene-gallery/.test(read(file)),file);
+  }
+  assert.equal(content.starThoughts.length,5);
+  assert.equal(content.starThoughts[2],'Esta página me costó varias noches de desvelo, jajajaja');
+  assert.equal(content.starThoughts[3],'Todavía me causa gracia recordar aquella salteña y lo confundido que estuve');
+  for(const [index,id] of expected.entries()){
+    const row=s.nodes[id].children.find(node=>node.className==='thought-star');
+    assert(row);assert.equal(row.children[0].dataset.disclosure,`thought-${index}`);
+    assert.equal(row.children[1].children[0].textContent,content.starThoughts[index]);
+  }
+});
+
+test('Canción en la carta: versículo primero, reproductor sin autoplay y enlace alternativo',()=>{
+  const s=setup();const content=s.context.window.pageContent;
+  assert.equal(content.music.url,'https://youtu.be/Xm_M3B5B7Lo?si=BGoWgEivllY5tBN-');
+  assert.equal(content.music.text,undefined);
+  const card=s.nodes['music-card'].children[0];const player=card.children[0];const link=card.children[1];
+  assert.equal(player.tagName,'iframe');
+  assert.equal(player.attrs.src,'https://www.youtube-nocookie.com/embed/Xm_M3B5B7Lo?autoplay=0&playsinline=1&rel=0');
+  assert.equal(player.attrs.title,content.music.title);assert.equal(player.attrs.loading,'lazy');
+  assert(!player.attrs.allow.includes('autoplay'));
+  assert.equal(link.tagName,'a');assert.equal(link.attrs.href,content.music.url);
+  assert.equal(link.attrs.target,'_blank');assert.equal(link.attrs.rel,'noopener noreferrer');
+  assert(link.attrs['aria-label'].includes('YouTube'));assert.equal(s.opened.length,0);
+  const html=read('index.html');
+  assert(html.indexOf('class="letter-verse"')<html.indexOf('id="music-card"'));
+  assert.equal(content.verse.text,'Porque de tal manera amó Dios al mundo…');
+  assert.equal(content.verse.reference,'Juan 3:16');
+  assert(!/<audio|<video|autoplay=1/.test(html));
+  assert(!html.includes('Esta canción no la compuse yo'));
+  const renderer=require('../js/render-content.js');
+  const fallback=renderer.blocks({...content,music:{...content.music,url:'https://youtu.be/'}})['music-card'][0];
+  assert.equal(fallback.children.length,1);assert.equal(fallback.children[0].tag,'a');
+});
+
+test('Chibi alegre solo en portada y todas las referencias WebP de estrellas usan el recurso blanco',()=>{
+  const s=setup();const content=s.context.window.pageContent;
+  assert.equal(content.poses.inicio,'assets/chibi/chibi-portada-alegre.webp');
+  assert.equal(content.poses.gracias,'assets/chibi/chibi-gracias.webp');
+  assert.equal(content.poses.pensativo,'assets/chibi/chibi-pensativo.webp');
+  assert.equal(content.poses.atento,'assets/chibi/chibi-sonrisa.webp');
+  assert.equal(content.poses.sonrisa,'assets/chibi/chibi-sonrisa.webp');
+  assert.equal(Object.values(content.poses).filter(src=>src.includes('chibi-portada-alegre')).length,1);
+  const hero=s.images.filter(image=>image.src.includes('/chibi/'))[0];
+  assert.equal(hero.src,content.poses.inicio);assert.equal(hero.loading,'eager');assert.equal(hero.fetchPriority,'high');
+  for(const file of ['index.html','css/style.css','js/render-content.js','js/content.js'])assert(!read(file).includes('star-'+'black.webp'));
+  assert(fs.existsSync(path.join(root,'assets/images/star-white.webp')));
 });
 
 test('Chibis cargados sustituyen el marcador sin alterar sus rutas',()=>{
@@ -177,12 +232,7 @@ test('Cinco estrellas: apertura, cierre explícito, Escape y retorno de foco',as
     await button.fire('click');await panel.fire('keydown',{key:'Escape'});assert(panel.hidden);assert.equal(button.attrs['aria-expanded'],'false');
   }
 });
-test('Gustos: aria-expanded acompaña al desplegable nativo',async()=>{
-  const s=setup();assert.equal(s.summary.attrs['aria-expanded'],'false');
-  s.taste.open=true;await s.taste.fire('toggle');assert.equal(s.summary.attrs['aria-expanded'],'true');
-  s.taste.open=false;await s.taste.fire('toggle');assert.equal(s.summary.attrs['aria-expanded'],'false');
-});
-test('Cielo: distribución estable, sesenta estrellas laterales y treinta en secciones',()=>{
+test('Cielo: distribución estable, sesenta estrellas laterales y veinticinco en secciones',()=>{
   const first=setup();const second=setup();const bands=first.nodes['night-sky'].children;
   assert.equal(bands.length,2);assert.equal(bands[0].className,'sky-band sky-left');assert.equal(bands[1].className,'sky-band sky-right');
   for(const [side,band] of bands.entries()){
@@ -196,7 +246,7 @@ test('Cielo: distribución estable, sesenta estrellas laterales y treinta en sec
     }
   }
   assert(new Set(bands[0].children.map(star=>star.attrs.style)).size===30);
-  for(const id of ['inicio','gracias','sobre-mi','conocerte','detalles','carta']){
+  for(const id of ['inicio','gracias','sobre-mi','conocerte','carta']){
     const local=first.nodes[id].children.find(node=>node.className==='section-sky');
     assert(local);assert.equal(local.attrs['aria-hidden'],'true');
     assert.equal(local.children.flatMap(slot=>slot.children).length,5);
@@ -229,9 +279,9 @@ test('Cielo visible: tamaños positivos, opacidad y orden de capas declarado',()
   assert.match(css,/\.sky-band\{[^}]*overflow:hidden;pointer-events:none/);
   assert.match(css,/left:clamp\(0px,var\(--star-x\),calc\(100% - var\(--star-render-size\)\)\)/);
   assert.match(css,/top:clamp\(0px,var\(--star-y\),calc\(100% - var\(--star-render-size\)\)\)/);
-  assert.match(css,/mask-image:url\('\.\.\/assets\/images\/star-black.webp'\)/);
+  assert.match(css,/mask-image:url\('\.\.\/assets\/images\/star-white.webp'\)/);
   assert.match(css,/mask-mode:alpha/);
-  assert(fs.existsSync(path.join(root,'assets/images/star-black.webp')));
+  assert(fs.existsSync(path.join(root,'assets/images/star-white.webp')));
   for(const width of [320,390,600,768,1024,1250,1320,1440,1920]){
     const bandWidth=width>=1320?(width-1120)/2-16:width*.04;
     for(const band of s.nodes['night-sky'].children)for(const star of band.children){
@@ -273,7 +323,7 @@ test('Depuración inactiva por defecto y espacios del cielo fuera del texto',()=
   assert(10+32<=48);assert(12+32<=56);assert(4+16<=25);
   assert(8+24<=48);assert(10+24<=56);
   const s=setup();
-  for(const id of ['inicio','gracias','sobre-mi','conocerte','detalles','carta']){
+  for(const id of ['inicio','gracias','sobre-mi','conocerte','carta']){
     const local=s.nodes[id].children.find(node=>node.className==='section-sky');
     for(const slot of local.children)for(const star of slot.children){
       assert.equal(star.tagName,'span');assert.equal(Object.keys(star.handlers).length,0);
