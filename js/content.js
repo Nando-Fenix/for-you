@@ -23,7 +23,7 @@ window.pageContent = {
   starHint: "Algunas estrellas tienen algo que contarte",
   illustrationsEnabled: true,
   hero: {
-    title: '¡Holaaa! Qué alegría verte por aquí'',
+    title: '¡Holaaa! Qué alegría verte por aquí',
     text: "Bueno… no sé muy bien cómo comenzar esto.\n\nSe me ocurrió preparar un pequeño espacio diferente, con algunas sorpresas, un poquito de creatividad y varias cosas que me gustaría compartir contigo.\n\nNo te preocupes, no es un examen ni tienes que responder nada :D. Simplemente quería invitarte a recorrer algo que hice con mucho cariño.\n\nEspero que te guste y, sobre todo, que te saque una sonrisa."
   },
   thanks:{
