@@ -138,7 +138,7 @@ window.pageContent = {
     'gift-art': { closed: 'assets/images/gift-closed.webp', open: 'assets/images/gift-open.webp' },
     'letter-art': { closed: 'assets/images/letter-closed.webp', open: 'assets/images/letter-open.webp' }
   },
-  starThoughts: ["A veces se me da mejor programar que encontrar las palabras", "No suelo hacer detalles así, pero quise intentarlo", "Esta página me costó varias noches de desvelo, jajajaja", "Todavía me causa gracia recordar aquella salteña y lo confundido que estuve", "Gracias por tomarte el tiempo de llegar hasta aquí"],
+  starThoughts: ["Hay ideas que comienzan con un simple -¿y si lo intento?-", "Dato curioso: algunas de mis mejores ideas aparecen cuando debería estar durmiendo", "Si encuentras algún detalle curioso en esta página, probablemente tardé más de lo necesario en hacerlo, jajaja", "Me gustan esas pequeñas sorpresas que hacen diferente un día cualquiera", "¡Encontraste otra estrella! Espero que estés disfrutando este pequeño recorrido"],
   whatsappNumber: '59169597889', // Código de país y número, solo dígitos, sin + ni espacios.
   interactions: {
     giftOpen: 'Abrir mensaje', giftClose: 'Cerrar mensaje', letterOpen: 'Abrir carta', letterClose: 'Cerrar carta',
