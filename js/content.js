@@ -84,18 +84,49 @@ window.pageContent = {
     ['risas', 'Cosas que nos hacen reír', '¿Qué pequeña tontería suele hacerte reír?', 'También hay espacio para conversar de cosas ligeras.'],
     ['sobre-ti', 'Algo más sobre ti', '¿Qué te gustaría que yo supiera de ti?', 'Puedes elegir lo que quieras compartir, a tu ritmo.']
   ],
+  
   letter: [
-    "Nuevamente quiero agradecerte por los detalles. Quizás ya hayas notado que soy alguien un poco distraído y que no siempre encuentro las palabras adecuadas, pero algo que sí disfruto es escuchar a las personas.",
-    "Aquella mañana en la que llegaste de repente preguntando por mí todavía resuena en mi cabeza. No te mentiré, me dejaste completamente confundido y pensativo durante todo el día.",
-    "Y cuando otro día aparecieron aquel refresco y esa galletita con tu nombre, volviste a sorprenderme. Al descubrir el código QR de la etiqueta y escuchar la canción que habías compartido, terminé todavía más desconcertado, pero también bastante alegre.",
-    "Aquella canción consiguió calmar un poco los nervios que sentía. Me dio tanta vergüenza que terminé dando vueltas en mi cama sin saber muy bien qué pensar, jajaja.",
-    "Soy alguien bastante reservado y no estoy acostumbrado a recibir este tipo de atenciones. Por eso las valoro tanto, y quiero que sepas que significaron mucho para mí.",
-    "Pensé en enviarte muchos mensajes después de aquello, pero terminé pensando demasiado en qué decir. Al final, lo único que pude hacer fue darte las gracias.",
-    "Quizás por eso decidí crear esta página. Como te conté antes, no suelo ser especialmente detallista, pero crear cosas es una de las maneras en las que mejor puedo expresarme.",
-    "Me gustaría que nuestras conversaciones fueran cada vez más naturales, que podamos compartir curiosidades, reírnos de pequeñas tonterías y descubrir las cosas que tenemos en común, sin necesidad de apresurar nada.",
-    "Quizás, cuando leas esto, ya haya cometido mil y una tonterías, o tal vez me hayas notado bastante nervioso. Pero hay algo que quiero que sepas: te estoy muy agradecido.",
-    "Gracias por acercarte, por tus detalles y, si es posible, por darme el privilegio de seguir conociéndote.",
-    "Espero que este pequeño espacio sea un obsequio que represente mi gratitud."
+    "Bueno… si llegaste hasta aquí, significa que sobreviviste a todas mis ocurrencias, jajajaja.",
+  
+    "Antes que nada, quiero darte las gracias, sé que lo he mencionado varias veces, pero hay cosas que uno no termina de expresar con un simple -gracias-, y creo que esta es una de ellas.",
+  
+    "Todavía recuerdo aquella mañana en la que apareciste de repente preguntando por mí y me entregaste una salteña, no tienes idea de la cantidad de preguntas que pasaron por mi cabeza. -¿Quién será? ¿Por qué no la recuerdo? ¿De dónde me conoce?-. Creo que pasé buena parte del día intentando resolver aquel misterio, :D.",
+  
+    "Y cuando otro día llegaron el refresco y la galletita con tu nombre, pensé que las sorpresas habían terminado ahí, pero no… todavía estaba aquel tema en el QR.",
+  
+    "Cuando descubrí la canción, no sabía si sonreír, ponerme nervioso o seguir intentando entender qué estaba pasando. Al final, hice un poquito de todo, jajajaja. Curiosamente, escucharla también me ayudó a tranquilizarme.",
+  
+    "Quizás para ti fueron detalles sencillos, pero para mí resultaron inesperados y muy bonitos, no estoy acostumbrado a recibir ese tipo de atenciones, así que probablemente mi reacción no fue la más expresiva del mundo. Sin embargo, quiero que sepas que me alegraron muchísimo.",
+  
+    "Después pensé en escribirte un montón de cosas, pero cada vez que intentaba ordenar mis ideas, terminaba dándoles demasiadas vueltas.",
+  
+    "Y entonces se me ocurrió algo…",
+  
+    "-Bueno, si las palabras no me salen tan fácilmente, tal vez pueda expresarme haciendo lo que sé hacer-.",
+  
+    "Así nació esta página.",
+  
+    "Entre líneas de código, imágenes, pequeños errores que aparecían de la nada y varias noches de desvelo, fui construyendo este pequeño espacio. No voy a negar que hubo momentos en los que pensé: -¿Y ahora por qué no funciona esto?-, jajsjs.",
+  
+    "Pero quería hacerlo.",
+  
+    "No porque esperara algo a cambio, sino porque me parecía bonito agradecerte con algo creado por mí, asi como me obsequiaste algo creado por ti.",
+  
+    "Y también porque quería mostrarte una parte de quien soy. Detrás de esa apariencia seria y algo cansada hay alguien que disfruta crear, aprender, tocar música y que, aunque no siempre sepa mantener una conversación, también tiene muchas historias y tonterías que contar.",
+  
+    "Ahora que hemos comenzado a conversar, me gustaría seguir descubriendo cosas de ti: qué música te acompaña, qué te hace reír, cuáles son tus sueños o simplemente cómo estuvo tu día.",
+  
+    "No tenemos que descubrirlo todo de golpe. A veces las mejores conversaciones comienzan con algo tan sencillo como una pregunta inesperada… o, en nuestro caso, una salteña, :D XD.",
+  
+    "Quizá cuando leas esto ya haya dicho alguna tontería o me hayas notado un poco nervioso, pero espero que también hayas podido conocer una parte más alegre y sincera de mí.",
+  
+    "Gracias por aquellos detalles, por las sorpresas y por darme el privilegio de conocerte.",
+  
+    "Espero que esta página te saque al menos una sonrisa, porque mientras la preparaba, más de una vez terminé sonriendo yo también.",
+
+    "Quiero que no te sientas forzada a responderme o corresponder pero aunque llegues a olvidarme, yo jamas olvidare tu nombre.",
+  
+    "Un pequeño detalle, hecho a mi manera."
   ],
   // Añade los archivos cuando estén disponibles; hasta entonces se muestra el marcador.
   poses: { inicio: 'assets/chibi/chibi-portada-alegre.webp', gracias: 'assets/chibi/chibi-gracias.webp', pensativo: 'assets/chibi/chibi-pensativo.webp', atento: 'assets/chibi/chibi-sonrisa.webp', sonrisa: 'assets/chibi/chibi-sonrisa.webp' },
