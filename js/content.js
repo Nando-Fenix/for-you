@@ -9,7 +9,7 @@ window.pageContent = {
     heroEyebrow: 'UN DETALLE, A MI MANERA', start: 'Comenzar', quiet: "Sin prisas, puedes quedarte un momento.", scene: "Un pequeño gesto.", heroBottom: "HECHO CON MUCHO CARIÑO", below: 'Un poquito más abajo ↓',
     thanksEyebrow: "LA VIDA ESTÁ LLENA DE SORPRESAS", gift: 'Hay detalles que se quedan.', giftPending: 'Un mensaje para leer con calma',
     aboutEyebrow: "AUNQUE NO ME LO PEDISTE", aboutTitle: 'Un poco sobre mí', aboutIntro: "No tengo todas las palabras, pero puedo empezar por ser honesto.", aboutFootnote: "Son cosas que reconozco en mí.",
-    discoverEyebrow: "AHORA, SOBRE TI", discoverTitle: 'También me gustaría conocerte a ti', conversationTitle: "Elige una conversación.", discoverFootnote: "Responde solo lo que te apetezca, sin presiones",
+    discoverEyebrow: "AHORA, SOBRE TI", discoverTitle: 'Bueno… ¿y qué hay de ti?', conversationTitle: "¿De qué te gustaría conversar?", discoverFootnote: "Responde solo lo que te apetezca, sin presiones",
     letterEyebrow: "PARA TERMINAR", letterTitle: 'Una pequeña carta', letterIntro: 'Unas palabras que quería compartir contigo.', letterLabel: 'PARA TI, CON SINCERIDAD', signoff: 'A mi manera.', footer: 'Gracias por pasar por aquí.',
     placeholder: 'UN LUGAR PARA MI OTRA VERSIÓN', illustrationPending: 'Ilustración pendiente', imageAlt: 'Personaje chibi masculino, de cabello oscuro semilargo y ondulado, con ropa oscura y expresión tranquila', noscript: 'Puedes leer todo el contenido y recorrer las secciones sin JavaScript.'
   },
